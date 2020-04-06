@@ -11,7 +11,7 @@ using namespace std;
 
 class Drone : public Coord<Drone> {
 public:
-	using Coord<Drone>::operator=;
+    using Coord<Drone>::operator=;
 };
 
 /* -/- drone.h -/- */
