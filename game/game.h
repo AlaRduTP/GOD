@@ -51,7 +51,9 @@ public:
     Iter<Drone> drones(const Player &, const Zone &) const;
     int Control(const Zone &) const;// the least number of drones to take or keep control of ceratin zone
     void UpdateZones();             // update who is controlling the zones
+    void SocialDistancing() const;  // keep social distance
     void Output() const;            // output the destination points to be reached of my drones.
+    void StayHome() const;
 
     template<typename T, typename U>
     static void Sort(Iter<T> & it, const U & point) {
@@ -61,7 +63,7 @@ public:
     }
 
     template<typename T>
-    static void Sort(Iter<T> & it, void (* cmp)(const T &, const T &)) {
+    static void Sort(Iter<T> & it, bool (* cmp)(const T &, const T &)) {
         GOD::sort(it.begin(), it.end(), cmp);
     }
 

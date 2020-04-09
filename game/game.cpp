@@ -141,12 +141,34 @@ void Game::UpdateZones() {
     }
 }
 
+void Game::SocialDistancing() const {
+    for(int keepSocialDistancing = 0; keepSocialDistancing < nd; ++keepSocialDistancing) {
+        Drone & drn = Me().drone(keepSocialDistancing);
+        drn.x = (keepSocialDistancing % 4)*999 + ((keepSocialDistancing / 4) & 1)*500;
+        drn.y = (keepSocialDistancing / 4)*899;
+    }
+}
+
 void Game::Output() const {
     for(int i = 0; i < nd; i++) {
         const Drone & drone = Me().drone(i);
         cout << drone.x << ' ' << drone.y << endl;
     }
 }
+
+void Game::StayHome() const {
+    int x;
+    while (1) {
+        cerr << "Don't bother me !!!" << endl;
+        cerr << "Now in home isolation! QQ" << endl;
+        SocialDistancing();
+        Output();
+        for(int i = nz + np * nd * 2; i; --i) {
+            cin >> x; cin.ignore();
+        }
+    }
+}
+
 
 ostream & operator<<(ostream & os, const Game & game) {
     os << "My player ID:                  " << game.me << endl;
