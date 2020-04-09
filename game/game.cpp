@@ -2,8 +2,6 @@
 
 /* -/- game.cpp -/- */
 
-#include <algorithm>
-
 Player::Player(int d, int nd, int nz) : id(d), _nd(nd), _nz(nz) {
     _ori_drones = new Drone [nd];
     _drones = new Drone * [nd];

@@ -5,8 +5,6 @@
 
 /* -/- drone.h -/- */
 
-#include <iostream>
-
 using namespace std;
 
 class Drone : public Coord<Drone> {
