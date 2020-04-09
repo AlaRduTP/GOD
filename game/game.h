@@ -5,23 +5,25 @@
 #include "drone.h"
 #include "iter.h"
 
+/* -/- game.h -/- */
+
 #include <ostream>
 
 using namespace std;
 
-/* -/- game.h -/- */
-
 class Player {
 public:
+    friend class Game;
+
     Player(int, int, int);
     Player() {};
     ~Player();
 
     const int id {-1};              // player ID
+    Iter<Drone> drones;             // iterator of drones
 
-    bool isContorl(const Zone &) const;
-    Drone & drones(int) const;      // get the drone
-    Iter<Drone> & drones() const;   // iterator of drones
+    bool isControl(const Zone &) const;
+    Drone & drone(int) const;       // get the drone
 private:
     const int _nd {0};              // number of drones
     const int _nz {0};              // number of zones
@@ -38,13 +40,30 @@ public:
     const int np;                   // number of players
     const int nd;                   // number of drones
     const int nz;                   // number of zones
+    Iter<Player> players;           // iterator of players
+    Iter<Zone> zones;               // iterator of zones
 
     Player & Me() const;            // get my player
-    Player & players(int) const;    // get the player
-    Iter<Player> & players() const; // iterator of players
-    Zone & zones(int) const;        // get the zone
-    Iter<Zone> & zones() const;     // iterator of zones
+    Player & player(int) const;     // get the player
+    Player & Controller(const Zone &) const;
+    Zone & zone(int) const;         // get the zone
+    Zone & Trace(const Drone &) const;
+    Iter<Drone> drones(const Player &, const Zone &) const;
+    int Control(const Zone &) const;// the least number of drones to take or keep control of ceratin zone
+    void UpdateZones();             // update who is controlling the zones
     void Output() const;            // output the destination points to be reached of my drones.
+
+    template<typename T, typename U>
+    static void Sort(Iter<T> & it, const U & point) {
+        GOD::sort(it.begin(), it.end(), [&](const T & a, const T & b) {
+            return a - point < b - point;
+        });
+    }
+
+    template<typename T>
+    static void Sort(Iter<T> & it, void (* cmp)(const T &, const T &)) {
+        GOD::sort(it.begin(), it.end(), cmp);
+    }
 
     friend ostream & operator<<(ostream &, const Game &);
 private:

@@ -8,9 +8,9 @@
 class Zone : public Coord<Zone> {
 public:
     friend class Player;
-
-    void Update();
+    friend class Game;
 private:
+    void Update();
     int _pid {-1};  // who is controlling the zone
 };
 

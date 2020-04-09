@@ -1,10 +1,10 @@
 #include "zone.h"
 
+/* -/- zone.cpp -/- */
+
 #include <iostream>
 
 using namespace std;
-
-/* -/- zone.cpp -/- */
 
 void Zone::Update() {
     int pid;

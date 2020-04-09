@@ -3,14 +3,16 @@
 
 #include "coord.h"
 
+/* -/- drone.h -/- */
+
 #include <iostream>
 
 using namespace std;
 
-/* -/- drone.h -/- */
-
 class Drone : public Coord<Drone> {
 public:
+	friend class Player;
+    friend class Game;
     using Coord<Drone>::operator=;
 };
 
