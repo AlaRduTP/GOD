@@ -5,8 +5,9 @@ all:
 	g++ -std=c++17 $(FILES)
 
 happy:
+	@chmod +x happy.sh
 	@./happy.sh $(HEADERS) $(FILES)
 	g++ -std=c++17 happy.cpp
 
 clean:
-	rm a.out
+	rm -f a.out
