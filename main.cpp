@@ -96,12 +96,12 @@ int main() {
         // ...
         game.SocialDistancing();    // Just for example
 
+        // game.StayHome();            // Isolate!
+
         // ### STEP 6 ###
         // Output the destination points to be
         // reached by my drones.
         game.Output();
-
-        // game.StayHome();            // Isolate!
 
         // Back to STEP 3
     }
