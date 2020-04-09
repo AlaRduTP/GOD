@@ -11,6 +11,9 @@ using namespace std;
 
 template<typename T>
 struct Coord {
+    Coord() {}
+    Coord(int m, int n) : x(m), y(n) {}
+
     int x {0};
     int y {0};
 
