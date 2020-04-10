@@ -11,6 +11,7 @@ class Drone : public Coord<Drone> {
 public:
     friend class Player;
     friend class Game;
+    using Coord::Coord;
     using Coord<Drone>::operator=;
 };
 

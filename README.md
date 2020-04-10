@@ -2,7 +2,11 @@
 
 Coding Game - Game of Drones
 
-## Useage
+## Doc
+
+https://uier.github.io/happygod/
+
+## Basic Useage
 
 write your code in main.cpp
 

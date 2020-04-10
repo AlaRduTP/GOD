@@ -13,8 +13,8 @@ bool mycmp(const Zone & a, const Zone & b) {
 int main() {
     /* ### STEP 1 ###
        Initialize the game by :
-        - me:   ID of my player
         - np:   number of players in the game
+        - me:   ID of my player
         - nd:   number of drones in each team
         - nz:   number of zones on the map */
     int P, ID, D, Z;
@@ -86,7 +86,7 @@ int main() {
                     for(const Drone & drone : drones) {
                         cerr << drone << endl;
                     }
-                    cerr << "totle: " << drones.size() << endl;
+                    cerr << "total: " << drones.size() << endl;
                 }
                 if(player.id == game.me) {
                     // The least number of my drones to take/keep control the zone
@@ -109,12 +109,12 @@ int main() {
         // for(Drone & drone : game.Me().drones) {
         //     // coordinate assignment
         //     drone = game.zone(0);
-        //     drone = {123, 456};
+        //     drone = (Drone){123, 456};
         //     // coordinate assignment with converting
-        //     drone += (Coord<Drone>){14, 50};
-        //     drone -= (Coord<Drone>){88, 88};
-        //     // distance
-        //     int d = drone - (Coord<Drone>){11, 26};
+        //     drone += (Drone){14, 50};
+        //     drone -= (Zone){88, 88};
+        //     // square of distance
+        //     int d = drone - (Drone){11, 26};
         // }
 
         /* ### STEP 6 ###
