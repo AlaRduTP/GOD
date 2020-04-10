@@ -58,6 +58,12 @@ int main() {
         for(const Player & player : game.players) {
             for(Drone & drone : player.drones) {
                 cin >> drone; cin.ignore();
+                /* ### CAUTION ###
+                   You should always use `cin >>` to update the coordinate of a drone
+                   (but not something like bellow), or `game.Trace` will no longer meaningful */
+                // int x, y;
+                // cin >> x >> y; cin.ignore();
+                // drone = (Drone){x, y};
             }
         }
 
